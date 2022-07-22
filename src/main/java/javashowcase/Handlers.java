@@ -22,6 +22,11 @@ public class Handlers {
             String response = "<h1>Server start success if you see this message</h1>" + "<h1>Port: " +
                     SimpleHttpServer.port + "</h1>";
             exchange.sendResponseHeaders(200, response.length());
+            try{
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             OutputStream os = exchange.getResponseBody();
             os.write(response.getBytes());
             os.close();
